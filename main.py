@@ -11,10 +11,14 @@ height=608
 
 dead = False
 
+def onClose():
+    os._exit(0)
+
 gui=Tk()
 gui.geometry(str(width)+"x"+str(height+105))
 gui.resizable(0,0)
 gui.title("Snake")
+gui.protocol("WM_DELETE_WINDOW", onClose)
 score= Label(master=gui, text="0",font=("Impact", 64))
 score.pack()
 canvas=Canvas(master=gui,width=width,height=height,background="black")
